@@ -8,7 +8,6 @@ bitmapdir = $(tcldir)/bitmap
 fgendir = $(HOME)/coob/fgen
 admdir = $(HOME)/coob/adm
 backupdir = $(HOME)/coob/backup
-etcdir = $(tcldir)/etc
 logdir = $(HOME)/coob/log
 orbitdir = $(HOME)/coob/orbit
 statusdir = $(HOME)/coob/status
