@@ -2,16 +2,16 @@ ACLOCAL_AMFLAGS = -I m4
 
 # the configuration of cosy (probably global on plisch)
 
-tcldir = @TCL@
+tcldir = $(HOME)/tcl
 confdir = $(tcldir)/conf
-bitmapdir = @TCL@/bitmap
-fgendir = @GLOBALDIR@/fgen
-admdir = @VARDIR@/adm
-backupdir = @VARDIR@/backup
+bitmapdir = $(tcldir)/bitmap
+fgendir = $(HOME)/coob/fgen
+admdir = $(HOME)/coob/adm
+backupdir = $(HOME)/coob/backup
 etcdir = $(tcldir)/etc
-logdir = @VARDIR@/log
-orbitdir = @GLOBALDIR@/orbit
-statusdir = @VARDIR@/status
+logdir = $(HOME)/coob/log
+orbitdir = $(HOME)/coob/orbit
+statusdir = $(HOME)/coob/status
 profile_ddir = $(sysconfdir)/profile.d
 logrotate_ddir = $(sysconfdir)/logrotate.d
 rsyslog_ddir = $(sysconfdir)/rsyslog.d
