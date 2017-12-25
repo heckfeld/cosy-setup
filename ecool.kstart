@@ -1,0 +1,9 @@
+#!/bin/sh
+
+export NAME=ecool
+
+. cosyEnv
+
+export SOURCEDIR=/mnt/cc-x3/coob/lib/$NAME
+
+kstart --windowclass Tk --activate --desktop $workspace pgwish -f $SOURCEDIR/$NAME.tcl ${1+"$@"}

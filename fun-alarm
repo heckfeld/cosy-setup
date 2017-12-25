@@ -1,0 +1,13 @@
+#!/bin/bash
+
+cmd=${1:-sensors}
+signal=${2:-ALARM}
+
+funlist="dipol mqt1 mqt3 mqt4 mqt5 mqt6 mqt7 mqt8 mqu1 mqu2 mqu3 mqu4 mqu5 mqu6 mxl02 mxl03 mxl04 mxl10 mxl11 mxl12 mxl13 mxl mxs mxg"
+
+for fun in ${funlist}; do
+    retval=`ssh $fun $cmd | grep ${signal}`
+    if [ $? -eq 0 ] ; then
+	echo -e "Fun $fun\t $retval"
+    fi
+done

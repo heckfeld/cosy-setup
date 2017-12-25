@@ -1,0 +1,5 @@
+#!/bin/bash
+
+export NAME=$(basename $0)
+. cosyEnv
+pgwish -f $SOURCEDIR/$NAME.tcl ${1+"$@"}

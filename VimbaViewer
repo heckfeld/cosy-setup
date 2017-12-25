@@ -1,0 +1,4 @@
+#!/bin/sh
+VIMBAROOT=/mnt/cc-lx/linux/fgen/opt/Vimba_2_0
+export GENICAM_GENTL64_PATH=$VIMBAROOT/VimbaGigETL/CTI/x86_64bit
+$VIMBAROOT/Tools/Viewer/Bin/x86_64bit/VimbaViewer

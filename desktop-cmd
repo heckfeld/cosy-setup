@@ -1,0 +1,10 @@
+#!/bin/bash
+
+cmd=${1:-date}
+
+funlist="lucy sally tric tac patty emma woody frieda bagira paxlx01 eclx01 eclx02 ccjim"
+
+for fun in ${funlist}; do
+    echo -en "Fun $fun ..\t"
+    ssh $fun $cmd
+done

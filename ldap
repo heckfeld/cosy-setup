@@ -1,0 +1,32 @@
+#/bin/bash
+#
+# landcape script for use on ccvt19
+#
+# setup ldap-auth-config on target machine
+#
+# check for already done, either new or deinstall'ed
+retval=$(dpkg-query --show --showformat='${Status}' ldap-auth-config 2>/dev/null) && exit 1
+echo $retval | grep -q deinstall && exit 1
+# prepare answers of ldap-auth-config
+# REM password is not part of the answer strings
+cat $LANDSCAPE_ATTACHMENTS/ldap-auth-config.selections | debconf-set-selections
+# install packages
+apt-get -y install libpam-ldap nscd
+# edit files
+ed /etc/nsswitch.conf << END
+,s/compat/compat ldap/
+w
+END
+ed /etc/pam.d/common-session << END
+\$
+i
+session required    pam_mkhomedir.so skel=/etc/skel umask=0022
+.
+w
+END
+ed /etc/pam.d/common-password << END
+26s/ use_authtok//
+w
+END
+service nscd restart
+exit 0

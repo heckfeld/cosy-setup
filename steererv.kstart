@@ -1,0 +1,32 @@
+#!/bin/sh
+
+export NAME=steererv
+
+export COOB=$HOME/coob
+export COOBDB=$COOB/adm
+export BACKUPDIR=$COOB/backup
+export LOGDIR=$COOB/log
+export FGENDIR=$COOB/fgen
+
+export TCL=$HOME/tcl
+export BITMAPDIR=$TCL/bitmap
+
+export SOURCEDIR=/mnt/cc-x/cc-x3/coob/lib/steerer
+export LIBDIR=/mnt/cc-x/cc-x3/coob/lib/utils
+
+export ORBIT_DIR=$COOB/orbit
+
+export XMAD_HOME=$COOB/lib/xmad
+export MODELLDIR=$COOB/lib/modell
+export COSMO_SRC=$HOME/coob/lib
+export PGHOST=dbserver
+export PGUSER=operator
+
+export PATH=$PATH:/mnt/cc-x/cc-x3/coob/bin/Linux
+
+workspace=$(get_workspace $NAME)
+if [ $? -ne 0 ] 
+then
+workspace=0
+fi
+kstart --windowclass Tk --activate --desktop $workspace pgwish -f $SOURCEDIR/$NAME.tcl ${1+"$@"}

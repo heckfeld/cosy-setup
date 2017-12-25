@@ -1,0 +1,5 @@
+#!/bin/sh
+
+export NAME=ecsteer
+
+kstart --windowclass Tk --activate --desktop $workspace pgwish -f $SOURCEDIR/$NAME.tcl ${1+"$@"}

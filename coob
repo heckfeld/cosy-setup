@@ -1,0 +1,50 @@
+# Generated file, DO NOT EDIT!
+# Do 26. Jan 09:58:31 CET 2017
+/var/log/addr_serv.log
+/var/log/sw_timing.log
+/var/log/cosy.log
+/var/log/extr.log
+/var/log/ibl.log
+/var/log/steererh.log
+/var/log/steererv.log
+/var/log/bumper.log
+/var/log/tx.log
+/var/log/ecsteer.log
+/var/log/exsep.log
+/var/log/ibl_diag.log
+/var/log/bpm.log
+/var/log/sext.log
+/var/log/impuls.log
+/var/log/mwpc.log
+/var/log/qbl.log
+/var/log/nepol.log
+/var/log/visp.log
+/var/log/use.log
+/var/log/sw_tx.log
+/var/log/rdiag.log
+/var/log/ecool.log
+/var/log/dl.log
+/var/log/blwanke.log
+/var/log/ppuls.log
+/var/log/blwsteer.log
+/var/log/expol.log
+/var/log/zyk.log
+/var/log/stoco.log
+/var/log/newcav.log
+/var/log/2mevcool.log
+/var/log/dtune.log
+{
+# rotate log files weekly
+     weekly
+# keep 6 weeks
+     rotate 6
+# send HUP after all files are rotated
+     sharedscripts
+# rsyslogd should switch to the newly created file(s)
+     postrotate
+	/usr/bin/killall -HUP rsyslogd
+     endscript
+# do not compress, for better reading
+     nocompress
+     missingok
+}

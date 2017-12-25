@@ -1,0 +1,14 @@
+dn: cn=COSY Operator,ou=users,dc=cc,dc=kfa-juelich,dc=de
+cn: COSY Operator
+gidnumber: 100
+givenname: COSY
+homedirectory: /mnt/cc-x/operator
+loginshell: /bin/bash
+objectclass: inetOrgPerson
+objectclass: posixAccount
+objectclass: shadowAccount
+objectclass: top
+sn: Operator
+uid: operator
+uidnumber: 160
+userpassword: {dict}I7Zz6d1wErWBo

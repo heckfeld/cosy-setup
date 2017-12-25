@@ -1,0 +1,272 @@
+#   static char rcsid [] = "$Header$";
+#   static char rcsid [] = "$Date$";
+
+OSMMINVALMEMSIZE:6001:Invalid Memory Size:
+OSMMINSUFFMEM:6002:Insufficent Memory available:
+OSMMINVALMEMBL:6003:Invalid Memory Block:
+
+#   Device Treiber Errorreasons
+OSDTINVCONN:5001:Invalid Connection:
+OSDTDEVNOP:5002:Device Not Open:
+OSDTDEVOPEN:5003:Device Already Open:
+OSDTNOCLOSE:5004:Could Not Close:
+OSDTLOSTDATA:5005:Lost Data:
+OSDTTRANS:5006:Transmission Error  (PDV-Interface in Ordnung? Adresse richtig?):
+OSDTMOREDATA:5007:More Data Available:
+OSDTDEVFULL:5008:Device Full:
+OSDTOUTOFBOUNDS:5009:Out Of Device Bounds:
+OSDTDATATRUNC:5010:Data Was Truncated:
+OSDTUNASYNOP:5011:Unknown Asynchronous Operation:
+OSDTINVWTTIME:5012:Invalid Wait Time:
+OSDTABORTREQ:5013:Aborted By Request:
+OSDTDEVNOFO:5014:Device Not Found    (TMDB richtig? DB_server?, DB-Eintrag da?):
+OSDTINSUFRES:5015:Insufficient Resources (bei GPIB -> Openflags):
+OSDTCONNDEN:5016:Connection Denied:
+OSDTINVDEV:5017:Invalid Device:
+OSDTINVAL:5018:Invalid Parameter:
+OSDTMFILE:5019:MAXOPEN Devices allready:
+OSDTINSUFFMEM:5020:Insufficent Memory available:
+
+OSSHMINVAL:14001:Invalid Value:
+OSSHMINSUFMEM:14002:Insufficient Memory:
+OSSHMPERMDENIED:14003:Permission Denied:
+OSSHMNOTFOUND:14004:Name/Adr Not Found:
+OSSHMNOLINK:14005:No Process Attached:
+
+#   PC Errorreasons
+OSPCINSUFMEM:7001:insufficient memory:
+OSPCINVALREP:7002:invalid repository:
+OSPCINVALLEN:7003:invalid message block length (<=0):
+OSPCINVRESPO:7004:invalid response repository id:
+OSPCMSGNOTS:7005:message not send:
+OSPCREPDELWW:7006:repository deleted while waiting:
+OSPCMSGTRUNC:7007:message truncated:
+OSPCINVALLIM:7008:invalid time limit:
+OSPCLIMEXPIR:7009:time limit has expired:
+OSPCNORCVPOS:7010:Receiver exists:
+OSPCNOSENPOS:7011:Message exists:
+OSPCACTREPDEL:7012:active repository deleted:
+OSPCNOTAUTDEL:7013:not authorized to delete (not creator):
+OSPCINVALINI:7014:invalid initial value:
+OSPCINVALSEM:7015:invalid semaphore:
+OSPCNOWAITPOS:7016:max. procs. waiting:
+OSPCSEMDELWW:7017:semaphore deleted while waiting:
+OSPCREPNOTF:7018:no rep with that name:
+OSPCNAMEDREP:7019:rep already with name:
+OSPCINVALNAME:7020:name is empty string:
+OSPCP2PCRDATA:7021:OsP2pcRData failed:
+OSPCP2PCSERROR:7022:OsP2pcS[Msg|Data] fail:
+
+#   PM Errorreasons
+OSPMINVALPQUE:4001:invalid priority queue number:
+OSPMINVALPID:4002:invalid process identification number:
+OSPMEMPTYPQUE:4003:empty priority queue:
+OSPMENTRYEXIS:4004:process entry already exists in the queue:
+OSPMENTRYNOTF:4005:process entry not found in the queue:
+OSPMINVALMEMA:4006:negative memory allocation parameter:
+OSPMINSUFRES:4007:insufficient resources:
+OSPMINVALPRIO:4008:invalid priority value:
+OSPMINVALLEN:4009:invalid length of buffer (for name):
+OSPMPROGNOTF:4010:program (name) not found:
+OSPMNAMETRUNC:4011:program name truncated:
+OSPMUNABLEDEST:4012:unable to destroy (==> status):
+OSPMNOTAUTDEST:4013:not authorized to  destroy:
+OSPMUNABLESUSP:4014:unable to suspend (==> status):
+OSPMNOTAUTSUSP:4015:not authorized to suspend:
+OSPMUNABLERESU:4016:unable to resume (==> status):
+OSPMNOTAUTRESU:4017:not authorized to resume:
+OSPMPRIOACCDEN:4018:priority access denied:
+
+#   SVC Errorreasons
+OSSVCLOCKED:128001:possible deadlock for caller in Os_Send:
+OSSVCBADDEST:128002:bad destination in Os_Send:
+OSSVCBADSRC:128004:bad src/dest field for Os_SysCall:
+
+#   P2PC Errorreasons
+OSP2PCSRCNF:3001:srcpid unknown in list:
+OSP2PCBUFEMPTY:3002:buffer is empty, no data stored:
+OSP2PCTIME:3003:timout, no message or data sent:
+OSP2PCNODEST:3004:destination is unknown:
+OSP2PCNOTRANS:3005:transfer-error, no data sent:
+OSP2PCNOBUF:3006:no more space to store data (MAXDATA):
+OSP2PCNOBUFAL:3007:no space allocated with OsAlloc:
+
+#   SCSR Errorreasons
+SCSR:-1:Die Syntax des Kommandos ist nicht korrekt:
+SCSR:-2:Das angegebene Ziel ist im Scsr nicht connected                                 | Es gibt diesen Gerätetreibertyp nicht                                        | Es kann kein weiteres Ziel mehr connected werden:
+SCSR:-3:Der Gerätetreibertyp ist nicht einprogrammiert:
+SCSR:-4:Der Gerätetreiber kennt diese Funktion nicht:
+SCSR:-5:Für diesen Parameter kann keine Zahl gesetzt werden:
+SCSR:-6:Für diesen Parameter kann kein Wert gelesen werden:
+SCSR:-7:Für diesen Parameter kann kein String gesetzt werden:
+
+#   Calc Errorreasons
+PDD Calc (fct):10:Rechenvorschrift nicht zulässig:
+PDD Calc (c):20:Division durch Null geht nicht:
+PDD Calc (busy):30:Die Digi200-Adresse ist auf Null gesetzt:
+PDD Calc (xaddr):40:Falsche Syntax der hexadezimalen Adresse:
+
+#   Viewer Errorreasons
+PDD Viewer:-1:XWindowerror:
+PDD Viewer:-2:XWindowerror:
+PDD Viewer:-3:XWindowerror:
+PDD Viewer:1000:XWindowerror  (Target(-Internetadresse) in xhost eintragen):
+PDD Viewer:22:Der Name der Workstation, auf dem der Xserver läuft,                            ist auf dem Target nicht bekannt. Bitte die Internetadresse                     in Punktnotation angeben.:
+
+#   Motor Errorreasons
+PDD Motor:111:Motor ist bereits am Anfangs-Endschalter:
+PDD Motor:110:Motor ist bereits am Anfangs-Endschalter:
+PDD Motor:211:Motor ist bereits am Ende-Endschalter:
+PDD Motor:210:Motor ist bereits am Ende-Endschalter:
+PDD Motor:410:PDV-Response not ok (PDV-Interface und Adressen prüfen):
+PDD Motor:411:PDV-Response not ok (PDV-Interface und Adressen prüfen):
+PDD Motor:420:PDV-Response not ok (PDV-Interface und Adressen prüfen):
+PDD Motor:421:PDV-Response not ok (PDV-Interface und Adressen prüfen):
+PDD Motor:310:PDV-Response not ok (PDV-Interface und Adressen prüfen):
+PDD Motor:311:PDV-Response not ok (PDV-Interface und Adressen prüfen):
+PDD Motor:320:PDV-Response not ok (PDV-Interface und Adressen prüfen):
+PDD Motor:321:PDV-Response not ok (PDV-Interface und Adressen prüfen):
+
+#   BPM Errorreasons
+PDD BPM:99:No more buffer available (blkc, continuous mode):
+PDD BPM:66:Problems with datatransfer Target - Unix:
+
+#   DANF Errorreasons
+PDD Danf:114:Fehler in der Parameterdatenbank:
+PDD Danf:135:Kanal bzw. Netzgerät konnte nicht connected werden, Try Again!:
+
+
+#   DPN Errorreasons
+PDD DPN:101:Socket kann nicht kreiert werden:
+PDD DPN:100:RCLC läuft, Fgen ist armiert (sclc und sres|prfg|ncyc aufrufen):
+PDD DPN:102:RCLC läuft noch (sclc | prfg | ncyc aufrufen):
+PDD DPN:110:DC-Mode busy:
+PDD DPN:111:Fgen busy (vor sclc erst stop):
+PDD DPN:112:RCLC läuft bzw. Fgen busy (sclc | prfg aufrufen):
+PDD DPN:120:Falscher Mode für iout:
+PDD DPN:121:Falscher Mode für rclc:
+PDD DPN:122:Nichtexistierender Mode:
+PDD DPN:150:SRMP-Prozess noch aktiv:
+PDD DPN:222:Fgen Status stimmt nicht, Fifo wird nicht gefüllt (Quad, Dipol):
+PDD DPN:223:Fgen Status stimmt nicht, Fifo wird nicht gefüllt (Sextupol):
+PDD DPN:200:RMAG nur bei mq einstellbar:
+PDD DPN:300:Prozess zur Abarbeitung der Experimentliste läuft schon:
+PDD DPN:310:Falsche Zahl in Experimentliste (erlaubt: 1 | 2 | 3):
+PDD DPN:311:Leere Experimentliste:
+PDD DPN:555:Fgen busy, keine Zugriff moeglich:
+
+#   DPS Errorreasons
+PDD DPS:140:Über 200 Eingabezeilen, fgen-File checken:
+PDD DPS:141:rclc/rlex läuft schon, erst sclc:
+PDD DPS:142:next_cycle Prozess nicht gestartet, supc:
+PDD DPS:143:Falsche Parametereingabe:
+PDD DPS:144:Nur externer Trigger erlaubt, sarm:
+PDD DPS:145:Meldung für Dummies ignorieren, ungültiger Targetknoten,                       conn-String überprüfen:
+PDD DPS:146:Ungültige Experimentnummer, exp:
+PDD DPS:147:Ungültige Tabellennummer, tab:
+PDD DPS:148:Ungültiger DC-Wert, sdi:
+PDD DPS:149:Ausgabe läuft noch
+
+#   Trx Errorreasons
+PDD Trx:100:Fehler in der Reihenfolge der Befehle (nach start ist nur noch stop             erlaubt):
+PDD Trx (set):107:falsches Format:
+PDD Trx (set):108:Addresse außerhalb des Bereichs 0 .. 2047:
+
+#   S5 Errorreasons
+PDD S5:521:Simatic sendet NAK:
+PDD S5:619:Keine Reaktion von Simatic (Timeout):
+PDD S5:520:db oder dw nicht zulässig oder iolen Länge zu lang:
+PDD S5:510:S5 im STOP/PGR | RECEIVE nicht vorhanden | DB nicht eingerichtet:
+PDD S5:542:S5 im STOP:
+PDD S5:552:iolen Länge zu groß angegeben:
+PDD S5:665:iolen Länge zu groß angegeben (Integer => max. 2 Worte):
+
+#   Kick Errorreasons
+PDD Kick:114:Fehler in der Parameterdatenbank:
+
+#   Nepol Errorreasons
+PDD Nepol:100:Division durch 0:
+PDD Nepol:101:Unzulässiger Wertebereich:
+PDD Nepol:102:Prozeß zum Wiederaufladen des Kondensators existiert noch:
+PDD Nepol:103:Einstellung auf Local:
+PDD Nepol:104:Motor fährt noch:
+PDD Nepol:105:Parameter IPos/SPos nicht verfügbar:
+PDD Nepol:106:Parameter PolBit* nicht setzbar:
+
+#   Mwpc Errorreasons
+PDD MWPC:101:Device ist kein Talker (start, sdat):
+PDD MWPC:102:Trigger Timeout:
+PDD MWPC:103:Schreibfehler (start, sdat):
+PDD MWPC:104:Falscher Timerwert:
+PDD MWPC:116:Fehler beim Oeffnen des Clientsockets (mwpcdat gestartet?):
+PDD MWPC:5:(Devpollfehler) nicht definierter Befehl wurde empfangen:
+PDD MWPC:6:(Devpollfehler) Schreib- oder Lesefunktion konnte während des                  Timeouts nicht ausgeführt werden:
+PDD MWPC:66:(Devpollfehler) Schreib- oder Lesefunktion konnte während des                  Timeouts nicht ausgeführt werden:
+PDD MWPC:7:(Devpollfehler) Hardwarefehler - kein INT-Signal von den                        A/D-Wandlern:
+PDD MWPC:8:(Devpollfehler):
+PDD MWPC:14:(Devpollfehler) Spannungsversorgung des Controllers ist unter einen             kritischen Wert abgesunken:
+PDD MWPC:15:(Devpollfehler) Meldung, daß ein reset durchgeführt wurde -                     alle Parameter sind auf die Initialwerte gesetzt:
+PDD MWPC:105:(Devpollfehler) nicht definierter Befehl wurde empfangen (clear):
+PDD MWPC:106:(Devpollfehler) Schreib- oder Lesefunktion konnte während des                  Timeouts nicht ausgeführt werden (clear):
+PDD MWPC:107:(Devpollfehler) Hardwarefehler - kein INT-Signal von den                        A/D-Wandlern (clear):
+PDD MWPC:114:(Devpollfehler) Spannungsversorgung des Controllers ist unter einen             kritischen Wert abgesunken (clear):
+PDD MWPC:115:(Devpollfehler) Meldung, daß ein reset durchgeführt wurde -                     alle Parameter sind auf die Initialwerte gesetzt (clear):
+PDD MWPC:300:Ungültiger Parameterwert, ON 1, OFF 0:
+PDD MWPC:200:Continuous Mode, letzte Messung noch nicht abgeschlossen:
+PDD MWPC:201:Continuous Mode ist eingeschaltet (vorher ausschalten!):
+PDD MWPC:202:Warten, letzte Operation noch nicht abgeschlossen:
+
+#   Chart Errorreasons
+PDD CHART:600:BADALLOC free store exhausted:
+PDD CHART:601:BADARRAY invalid number of charts for chart array:
+PDD CHART:602:BADBINDING bind an address to a socket failed:
+PDD CHART:603:BADBUFFER invalid buffer specified:
+PDD CHART:604:BADCHART invalid chart specified:
+PDD CHART:605:BADCONNECTION open a display connection failed:
+PDD CHART:606:BADCURVE incorrect specification of a curve:
+PDD CHART:607:BADNCHARTS height of n charts exceeds display height:
+PDD CHART:608:BADREAD reading from socket failed:
+PDD CHART:609:BADSCOPE incorrect specification of a scope:
+PDD CHART:610:BADSYSTEMCALL system call failed:
+PDD CHART:611:BADVALUE invalid value specified:
+PDD CHART:612:MAXARRAYSALLOC max number of chart arrays allocated:
+PDD CHART:613:MAXBUFFERSALLOC max number of geo. data buffers allocated:
+PDD CHART:614:MAXCURVESALLOC max number of curves allocated:
+PDD CHART:615:TIMEOUT timeout:
+
+#   qt9300 Errorreasons
+PDD QT9300:10:Schreib- Lesefehler :
+PDD QT9300:20:Befehl oder Argument ungueltig:
+PDD QT9300:30:Fehler bei der Befehlsausfuehrung:
+
+#   ppuls Errorreasons
+PDD ppuls:160:Experimentstring leer:
+PDD ppuls:161:Leere Pulsliste im Experimentstring ausgewählt:
+
+#   bec1 Errorreasons
+PDD bec1:1110000:Undefinierte Fehlermeldung des Controllers:
+PDD bec1:1110001:Controller - Function not supported, e.g. during polarity                                    reversal:
+PDD bec1:1110002:Controller - The argument contains unknown characters - not                                  likely in local operation:
+PDD bec1:1110003:Controller - Port not available:
+PDD bec1:1110004:Controller - Access denied, check the local/remote switch:
+PDD bec1:1110005:Controller - The argument is out of the allowed range - not                                  likely in local operation:
+PDD bec1:1110006:Controller - Access denied, Ext Ref active:
+PDD bec1:1110010:Status konnte nicht gelesen werden:
+PDD bec1:1110011:falsche Experimentnummer:
+PDD bec1:1110013:Wert konnte nicht gelesen werden oder falsche Anzahl Sollwerte:
+PDD bec1:1110014:negative Sollwerte:
+PDD bec1:1110015:Fehler in Parameter-Datenbank:
+
+#   sm70 Errorreasons
+PDD sm70:10:Fehler beim Schreiben an das Netzgerät:
+PDD sm70:20:Fehler beim Lesen der Antwort vom Netzgerät:
+PDD sm70:13:Antwort des Netzgerätes kann nicht in die entsprechende                        Zahl gewandelt werden:
+PDD sm70:23:Fehler beim Lesen des max. Spannungs-Wertes.                                    Antwort des Netzgerätes kann nicht in die entsprechende                        Zahl gewandelt werden:
+PDD sm70:33:Falscher Parameter-Index:
+PDD sm70:34:Falsche Anzahl an Intervallen:
+PDD sm70:35:Startstrom nicht zulässig:
+PDD sm70:36:Falsche Intervall-Nummer:
+PDD sm70:37:Delta-t nicht zulässig:
+PDD sm70:38:Strom-Endwert nicht zulässig:
+PDD sm70:111:Fehlerhafter Wert des Parameters:
+PDD sm70:222:TCP-Verbindung zum Netzgerät funktioniert nicht:

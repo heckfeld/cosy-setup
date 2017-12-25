@@ -1,0 +1,53 @@
+#!/bin/sh
+#
+# Environment common to all Sessions and GUI
+#
+
+COOB=${COOB:-/mnt/cc-x/cc-x3/coob}
+TCL=${TCL:-/mnt/cc-x/cc-x3/coob}
+export COOB TCL
+
+export COOBDB=$COOB/adm
+
+export BACKUPDIR=$HOME/coob/bak
+export LOGDIR=$HOME/coob/log
+export FGENDIR=$HOME/coob/fgen
+
+export BITMAPDIR=$TCL/bitmap
+
+SOURCEDIR=${SOURCEDIR:-$COOB/lib/$NAME}
+export SOURCEDIR
+export LIBDIR=$COOB/lib/utils
+
+export ORBITDIR=$COOB/orbit
+
+# steerer
+export MODELLDIR=/mnt/cc-x/operator/tcl/modell
+
+export COSMO=/mnt/cc-x/cc-x3/cosmo
+export XMAD_HOME=$COSMO/src/rt/xmad
+export RT_MODELL=$COSMO/modell
+export COSMO_SRC=$COSMO/src
+export DATABASE=$COSMO/src/database
+
+PGHOST=${PGHOST:-dbserver}
+PGUSER=${PGUSER=-operator}
+export PGHOST PGUSER
+
+export LXFGEN=${LXFGEN:-/mnt/cc-lx/linux/fgen}
+
+export OPERATOR_HOME=$HOME
+
+export PATH=/opt/m68k-elf/bin:/usr/bin:$PATH:/mnt/cc-x/cc-x3/coob/bin/Linux:/mnt/cc-x/cc-x3/coob/bin:$HOME/bin
+
+# the following variable is used by server.tcl to decide between setting WORKSPACE or not
+# SET_WORKSPACE=true means, display GUI on correspondant WORKSPACE (has to be set in KDE)
+# unset SET_WORKSPACE means,always display GUI on current WORKSPACE
+export SET_WORKSPACE=true
+
+workspace=$(get_workspace $NAME)
+if [ $? -ne 0 ]
+then
+    workspace=0
+fi
+

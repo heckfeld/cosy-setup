@@ -1,0 +1,63 @@
+#/bin/sh
+# host info: name, ip, ether, alive
+
+fullname=$0
+basename=$(basename $fullname)
+dirname=$(dirname $fullname)
+
+##############################################################
+
+TEMP=`getopt -o adihv --long all,dmi,ip,host,verbose \
+     -n 'hinfo' -- "$@"`
+
+if [ $? != 0 ] ; then echo "Terminating..." >&2 ; exit 1 ; fi
+
+# Note the quotes around `$TEMP': they are essential!
+eval set -- "$TEMP"
+
+##############################################################
+
+# shell true: 0 false: 1
+dmi=1
+host=1
+ip=1
+
+while true ; do
+	case "$1" in
+		-a|--all) dmi=0;ip=0;host=0;shift ;;
+		-d|--dmi) dmi=0; shift ;;
+		-h|--host) host=0; shift ;;
+		-i|--ip) ip=0; shift ;;
+		-v|--verbose) shift ;;
+		--) shift ; break ;;
+		*) echo "Internal error!" ; exit 1 ;;
+	esac
+done
+
+##############################################################
+hwinfo () {
+    ssh $1 dmesg | grep "DMI:" | cut -d ":" -f "2-" ;
+}
+
+hostinfo () {
+    set $(host $1)
+    if [ $? -ne 0 ]
+    then
+	echo "unknown"
+    else
+	if [ $# -eq 5 ]
+	then
+	    echo "$5"
+	else
+	    echo "$4"
+	fi
+    fi
+}
+##############################################################
+
+for arg do
+    if [ $ip -eq 0 ] ; then hostinfo $arg; fi
+    if [ $dmi -eq 0 ] ; then hwinfo $arg; fi
+done
+
+exit 0

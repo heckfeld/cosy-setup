@@ -1,0 +1,1 @@
+GATEWAY_OPTIONS='-sip 134.94.220.14 -home /etc/gateway -access access -pvlist pvlist -logfile /var/log/gateway.log -debug 0'

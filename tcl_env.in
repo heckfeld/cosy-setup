@@ -1,0 +1,26 @@
+#!/bin/sh
+export SYSTEM=`uname -s`
+
+export TCL=/mnt/cc-x3/coob
+export BACKUPDIR=/mnt/cc-l/operator/tcl/bak
+export LOGDIR=/mnt/cc-l/operator/tcl/log
+export FGENDIR=/mnt/cc-l/operator/tcl/fgen
+export FGEN_FEINEDITOR=$FGENDIR/impuls/Feineditor
+
+export COOB=/mnt/cc-x3/coob
+export COOBDB=$COOB/adm
+export SOURCEDIR=$COOB/lib/$NAME
+export LIBDIR=$COOB/lib/utils
+export BITMAPDIR=$COOB/bitmap
+
+export XMAD_HOME=/mnt/cc-x3/cosmo/src/rt/xmad
+export COSMO_SRC=/mnt/cc-x3/cosmo/src
+export COSMO_BIN=/mnt/cc-x3/cosmo/bin
+export MODELLDIR=/mnt/cc-l/operator/tcl/modell
+export RT_MODELL=/mnt/cc-x3/cosmo/modell
+export ORBIT_DIR=/mnt/cc-l/operator/orbit
+export COSY_DBNAME=cosy
+export OPERATOR_HOME=/mnt/cc-x/operator
+
+export PATH=$PATH:$COOB/bin/Linux
+

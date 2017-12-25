@@ -1,0 +1,95 @@
+
+Die Shell Scripts zum Starten der Oberflächen
+$FUN/bin
+	blwanke ecool ecsteer exsep extr mwpc sext steererh steererv
+
+Die bitmaps aus den Oberflächen
+$TCL/bitmap
+	c10.gif c11.gif c12.gif c13.gif c14.gif c15.gif c16.gif c17.gif c18.gif
+	c1.gif c2.gif c3.gif c4.gif c5.gif c6.gif c7.gif c8.gif c9.gif
+	smilyequal.gif
+	smilyequal.xpm
+	smily.gif
+	smilynice.xpm
+	smily.xpm
+
+Eine Beschreibung aller RT/OS Fehler
+$TCL/etc
+	errorlist
+
+Die Oberflächen
+$TCL/conf
+	guis.conf
+
+Die Beiden Server
+$TCL/conf
+	hosts
+
+Das Environment
+/etc/profile.d/cosy.sh
+	profile-cosy.sh
+
+	tcl_env
+
+Die Konfiguration des Timin Sender
+$TCL/etc
+	tx_ev_list.dat
+
+shadow.o.user.nc und passwd.o.user und newuser hinzugefügt
+shadow.o.user.nc ist mcrypt und dem Standard Operator password verschlüsselt
+
+Die Konfiguration von autoconf ist mit einer Datei
+$(prefix)/share/config.site oder
+$(prefix)/etc/config.site
+
+möglich.
+
+
+COSY Desktop standard
+<---
+sudo delgroup operator
+sudo adduser operator
+einmal als operator in KDE anmelden !!!!
+
+sudo apt-get install nfs-common
+sudo apt-get install openssh-server
+
+sudo apt-get install open-vm-tools open-vm-tools-desktop subversion autofs
+sudo vi /etc/auto.master
+	/mnt    /etc/auto.plisch
+sudo vi /etc/auto.plisch
+cc-x    -fstype=nfs,rw,retry=0 134.94.224.106:/mnt/cc-x
+cc-l    -fstype=nfs,rw,retry=0 134.94.224.106:/mnt/cc-l
+cc-x3   -fstype=nfs,rw,retry=0 134.94.224.106:/mnt/cc-x/cc-x3
+cc-x4   -fstype=nfs,rw,retry=0 134.94.224.106:/mnt/cc-x/cc-x4
+cc-l4   -fstype=nfs,rw,retry=0 134.94.224.106:/mnt/cc-x/cc-x4
+cc-lx   -fstype=nfs,rw,retry=0 134.94.224.106:/mnt/cc-lx
+sudo service autofs restart
+
+sudo apt-get install postgresql-client
+sudo apt-get install autoconf automake libtool xfonts-traditional xfonts-100dpi xfonts-75dpi libpcap-dev libpq-dev postgresql-client-9.3 Tclx tcllib iwidgets4 tcl-dev itcl3-doc itk3-doc iwidgets4-doc tcl-doc tcl8.6-doc tclx8.4-doc wmctrl libpgtcl tk-table bwidget
+
+sudo apt-get install ntp
+sudo vi /etc/ntp.conf
+Alle “server” statements auskommentieren
+	server 134.94.220.1
+einfügen
+sudo service ntp restart
+
+sudo ln -s /mnt/cc-lx/linux/fgen/share/tix /usr/local/lib/tix
+sudo cp /mnt/cc-lx/linux/fgen/etc/profile.d/cosy.sh /etc/profile.d
+
+Neu anmelden
+
+mkdir –p tcl/fgen/steerer
+mkdir –p tcl/log
+
+--->
+
+Fr 9. Sep 10:11:28 CEST 2016
+	guis.conf hat leider kene weiteren Spalten für Optionen/Argumente der GUIS
+	Es muss jede GUI auch ohne die entsprechenden command line arguments richtig starten
+		impuls: pgwish -f $SOURCEDIR/energie.src -s -c -N -e
+		bpm: exec $SOURCEDIR/bpm -c -D ecbpm "$@"
+Fr 13. Jan 13:27:42 CET 2017
+	cosy-server-cmd mit SVN_REVISION - noch in Arbeit

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+BIND_DN="cn=admin,dc=cc,dc=kfa-juelich,dc=de"
+BASE_DN="dc=cc,dc=kfa-juelich,dc=de"
+LDAP_URI="ldap://134.94.224.77"
+
+ldapsearch -H "$LDAP_URI" -D $BIND_DN -x -w "k.h.123!" -b "$BASE_DN" "$@"

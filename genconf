@@ -1,0 +1,101 @@
+#!/bin/sh
+
+fullname=$0
+basename=$(basename $fullname)
+dirname=$(dirname $fullname)
+
+GUIS="addr_serv sw_timing cosy extr ibl steererh steererv bumper tx	ecsteer	exsep ibl_diag bpm sext impuls mwpc qbl nepol visp use sw_tx rdiag ecool dl blwanke ppuls blwsteer expol zyk stoco newcav 2mevcool dtune"
+
+# rsyslog.d
+exec 1> 40-coob.conf.gen
+echo "# Generated file, DO NOT EDIT!"
+echo -n "# "
+date
+for gui in ${GUIS}; do
+cat <<END
+if \$programname == '$gui' then {
+	@134.94.224.25
+	action(type="omfile" file="/var/log/$gui.log")
+	stop
+    }
+END
+done
+mv 40-coob.conf.gen 40-coob.conf
+
+# rsyslog.d auf yogi
+exec 1> 40-coob.conf.gen
+echo "# Generated file, DO NOT EDIT!"
+echo -n "# "
+date
+echo "\$CreateDirs on"
+# \$DirGroup users
+# \$DirOwner operator
+# \$FileGroup users
+# \$FileOwner operator
+echo "\$DirCreateMode 0755"
+echo "\$FileCreateMode 0664"
+
+for gui in ${GUIS}; do
+cat <<END
+if \$programname == '$gui' then {
+	action(type="omfile" file="/var/log/cosy/$gui.log")
+	stop
+    }
+END
+done
+mv 40-coob.conf.gen 40-coob.conf.yogi
+
+# logrotate.d
+exec 1> coob.gen
+echo "# Generated file, DO NOT EDIT!"
+echo -n "# "
+date
+for gui in ${GUIS}; do
+echo "/var/log/$gui.log"
+done
+
+cat <<END
+{
+# rotate log files weekly
+     weekly
+# keep 6 weeks
+     rotate 6
+# send HUP after all files are rotated
+     sharedscripts
+# rsyslogd should switch to the newly created file(s)
+     postrotate
+	/usr/bin/killall -HUP rsyslogd
+     endscript
+# do not compress, for better reading
+     nocompress
+     missingok
+}
+END
+mv coob.gen coob
+
+# logrotate.d auf yogi
+exec 1> coob.gen
+echo "# Generated file, DO NOT EDIT!"
+echo -n "# "
+date
+echo "/var/log/cosy/*"
+cat <<END
+{
+# rotate log files weekly
+     weekly
+# keep 6 weeks
+     rotate 6
+# send HUP after all files are rotated
+     sharedscripts
+# rsyslogd should switch to the newly created file(s)
+     postrotate
+	/usr/bin/killall -HUP rsyslogd
+     endscript
+# do not compress, for better reading
+     nocompress
+     missingok
+}
+END
+mv coob.gen coob.yogi
+
+exit 0

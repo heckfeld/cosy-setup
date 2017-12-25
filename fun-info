@@ -1,0 +1,10 @@
+#!/bin/bash
+
+funlist="dipol mqt1 mqt3 mqt4 mqt5 mqt6 mqt7 mqt8 mqu1 mqu2 mqu3 mqu4 mqu5 mqu6 mxl02 mxl03 mxl04 mxl10 mxl11 mxl12 mxl13 mxl mxs mxg"
+
+for fun in ${funlist}; do
+    ip=$(host -c IN -t A $fun|grep "has address"| cut -d " " -f 4)
+    name=$(host -c IN -t A $fun|grep "has address"| cut -d " " -f 1|cut -d"." -f 1)
+    wkc=$(tinfo $name| grep LINUX_scsr| cut -d " " -f 4)
+    echo -e "Fun $fun $name $ip workcell $wkc"
+done

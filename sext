@@ -1,0 +1,29 @@
+#!/bin/sh
+
+export NAME=sext
+
+export COOB=$HOME/coob
+export COOBDB=$COOB/adm
+export BACKUPDIR=$COOB/backup
+export LOGDIR=$COOB/log
+export FGENDIR=$COOB/fgen
+
+export TCL=$HOME/tcl
+export BITMAPDIR=$TCL/bitmap
+
+export SOURCEDIR=/mnt/cc-x/cc-x3/coob/lib/sext
+export LIBDIR=/mnt/cc-x/cc-x3/coob/lib/utils
+
+export ORBIT_DIR=$COOB/orbit
+
+export XMAD_HOME=$COOB/lib/xmad
+export MODELLDIR=$COOB/lib/modell
+export COSMO_SRC=$HOME/coob/lib
+export PGHOST=dbserver
+export PGUSER=operator
+
+# FUN
+export OPERATOR_HOME=/mnt/cc-lx/linux/fgen/home/`whoami`
+export PATH=/opt/m68k-elf/bin:$PATH:/mnt/cc-x/cc-x3/coob/bin/Linux
+
+pgwish -f $SOURCEDIR/$NAME.tcl ${1+"$@"}

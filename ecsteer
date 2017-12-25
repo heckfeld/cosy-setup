@@ -1,0 +1,9 @@
+#!/bin/sh
+
+export NAME=ecsteer
+
+. cosyEnv
+
+export SOURCEDIR=/mnt/cc-x/cc-x3/coob/lib/steerer
+
+pgwish -f $SOURCEDIR/$NAME.tcl ${1+"$@"}

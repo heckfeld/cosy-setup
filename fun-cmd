@@ -1,0 +1,10 @@
+#!/bin/bash
+
+cmd=${1:-date}
+
+funlist="dipol mqt1 mqt3 mqt4 mqt5 mqt6 mqt7 mqt8 mqu1 mqu2 mqu3 mqu4 mqu5 mqu6 mxl02 mxl03 mxl04 mxl10 mxl11 mxl12 mxl13 mxl mxs mxg"
+
+for fun in ${funlist}; do
+    echo -e -n "Fun $fun\n"
+    ssh $fun $cmd
+done

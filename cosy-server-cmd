@@ -1,0 +1,84 @@
+#!/bin/bash
+
+SVN_REVISION="340"
+
+##############################################################
+
+fullname=$0
+basename=$(basename $fullname)
+dirname=$(dirname $fullname)
+area="all"
+
+funlist="plisch dbserver eclx01 eclx02 paxlx01 ccjim fglx01 fglx02 fglx03 woody bagira frieda"
+
+case "$basename" in
+	*server*) 
+		area=server
+		funlist="woody bagira frieda ccjim fglx01 fglx02 fglx03 plisch dbserver" ;;
+	*extra*) 
+		area=extra
+		funlist="eclx01 eclx02 paxlx01" ;;
+	*fun*) 
+		area=fun
+		funlist="dipol mqt1 mqt3 mqt4 mqt5 mqt6 mqt7 mqt8 mqu1 mqu2 mqu3 mqu4 mqu5 mqu6 mxl02 mxl03 mxl04 mxl10 mxl11 mxl12 mxl13 mxl mxs mxg" ;;
+	*) ;;
+esac
+
+##############################################################
+
+TEMP=`getopt -o ij:l:qs:v --long info,job:,list:,quiet,shell:,verbose \
+     -n 'cosy-server-cmd' -- "$@"`
+
+if [ $? != 0 ] ; then echo "Terminating..." >&2 ; exit 1 ; fi
+
+# Note the quotes around `$TEMP': they are essential!
+eval set -- "$TEMP"
+
+##############################################################
+
+# shell true: 0 false: 1
+info=1
+quiet=0
+shell="ssh"
+job=""
+
+while true ; do
+	case "$1" in
+		-i|--info) info=0; shift ;;
+		-j|--job) job=$2; shift 2 ;;
+		-l|--list) funlist=$2; shift 2 ;;
+		-q|--quiet) quiet=0; shift ;;
+		-s|--shell) shell=$2; shift 2 ;;
+		-v|--verbose) quiet=1; shift ;;
+		--) shift ; break ;;
+		*) echo "Internal error!" ; exit 1 ;;
+	esac
+done
+
+case "$job" in
+	error) cmd="cat /tmp/.scsr/log/linux_scsr.22375.error" ;;
+	*) cmd="" ;;
+esac
+
+if [ $info -eq 0 ] ; then
+    echo $funlist
+    exit 0
+fi
+##############################################################
+
+for arg do cmd="$cmd $arg" ; done
+
+if [ x"$cmd" == "x" -a "$shell" == "ssh" ] ; then
+    echo "bad combination of shell and command: $shell <$cmd>"
+    exit 1
+fi
+if [ x"$cmd" == "x" ] ; then
+    cmd="date"
+fi
+
+##############################################################
+
+for fun in ${funlist}; do
+    if [ -z "$quiet" ] ; then echo -e -n "$fun:\t" ; fi
+    $shell $fun "$cmd" 2>/dev/null
+done
